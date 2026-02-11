@@ -31,7 +31,7 @@ async def lifespan(app: FastAPI):
     global db_pool
     db_pool = await asyncpg.create_pool(
         user="gen_user",
-        password="Nv1#mUmS@^1wH,",
+        password="#Yml3v+4P<qTf3",
         database="default_db",
         host="192.168.0.4",
         port=5432,
