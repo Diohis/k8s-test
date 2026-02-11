@@ -30,10 +30,13 @@ async def lifespan(app: FastAPI):
     # Startup
     global db_pool
     db_pool = await asyncpg.create_pool(
-        DATABASE_URL,
+        user="gen_user",
+        password="Nv1#mUmS@^1wH,",
+        database="default_db",
+        host="31.130.135.213",
+        port=5432,
         min_size=10,
-        max_size=50,
-        command_timeout=60
+        max_size=50
     )
     yield
     # Shutdown
