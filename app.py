@@ -33,7 +33,7 @@ async def lifespan(app: FastAPI):
         user="gen_user",
         password="Nv1#mUmS@^1wH,",
         database="default_db",
-        host="31.130.135.213",
+        host="192.168.0.4",
         port=5432,
         min_size=10,
         max_size=50
