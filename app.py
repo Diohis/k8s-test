@@ -35,8 +35,8 @@ async def lifespan(app: FastAPI):
         database="default_db",
         host="192.168.0.4",
         port=5432,
-        min_size=10,
-        max_size=50
+        min_size=25,
+        max_size=100
     )
     yield
     # Shutdown
@@ -76,9 +76,7 @@ async def complex_db_operation(pool: asyncpg.Pool, n: int, result: int, exec_tim
             user = await conn.fetchrow("""
                 SELECT id, username, email 
                 FROM users 
-                WHERE is_active = TRUE 
-                ORDER BY random() 
-                LIMIT 1
+                WHERE is_active = TRUE and id >= random() * max_id LIMIT 1
             """)
             
             if not user:
